@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Coffin Report</title>
+<title>Stock Details</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../css/adminindex.css">
     <link rel="stylesheet" type="text/css" href="../../css/manage.css">
@@ -74,8 +74,29 @@ td{
 <div class="con1" align="center">
 <div class="con2">
 <?php
+                require "dbcon/dbcon.php";
+                $error=FALSE;
+                $date1err = $date2err =  "";
+                 if (isset($_POST['insert'])) {
+                     
+                     if(empty($_POST['date1'])){ 
+                                $date1err = "</br>* ";
+                                $error = TRUE;
+                            }else{
+                                $date1 = $_POST['date1'];
+                            }
+                     if(empty($_POST['date2'])){ 
+                                $date2err = "</br>* ";
+                                $error = TRUE;
+                            }else{
+                                $date2 = $_POST['date2'];
+                            }
+                $sql = "SELECT packname, COUNT(res_id) FROM reservations WHERE id.timein > '$date1' AND id.timein < '$date2' GROUP BY packname";
+                $query=(mysqli_query($conn,$sql));
+
+
     require "dbcon/dbcon.php";
-    $sql = "SELECT id.id, type.type, type.supplier, type.price, id.timein , id.timeout FROM id, type WHERE id.no = type.no";
+    $sql = "SELECT id.id, type.type, type.supplier, type.price, id.timein , id.timeout FROM id, type WHERE id.timein > '$date1' AND id.timein < '$date2'";
     $query=(mysqli_query($conn,$sql));
 ?>
 <table>
@@ -86,6 +107,7 @@ td{
         <th>Price</th>
         <th>Time In</th>
         <th>Time Out</th>
+    </tr>
 <?php
     while ($row = mysqli_fetch_assoc($query)){
          echo "<tr>";
@@ -117,6 +139,34 @@ td{
 
          echo "</tr>";}
 ?>
+</table>
+<?php
+}
+?>
+<div id="id">
+                <form method="post" action="report1.php">
+                <table id="tb8">
+                    <tr>
+                        <th colspan="2" align="left"><b style="color:white; font-size:24px; text-shadow:2px 2px 2px gray;">ID</b></th> 
+                    </tr>
+                    <tr>
+                    <td><label for="date1">From</label><span class="error"><?php echo $date1err;?></span></td>
+                    <td><input type="text" name="date1" placeholder="From"></td>
+                    </tr> 
+                    <tr>
+                    <td><label for="date2">To</label><span class="error"><?php echo $date2err;?></span></td>
+                    <td><input type="text" name="date2" placeholder="To"></td>
+                    </tr>
+                    <tr>
+                    <td colspan="2" align="center">
+                    <input type="submit" value="Search" name="insert">
+                    </td>
+                    </tr>
+
+                </table>
+            
+                </form>
+                </div>  
 </div>
 </div>
 </table>
