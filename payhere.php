@@ -42,7 +42,6 @@
                     </tr>
                       <tr>
                      <td colspan="2">
-                        <input type="submit" value="Submit" name="submit"> 
                         <input type="reset" value="Cancle" name="cancle">
                     </td>
                 </tr>
