@@ -1,3 +1,6 @@
+<?php     
+    session_start();
+?>
 <html>
 <head>
     <title>login</title>
@@ -360,6 +363,7 @@
                 $query = mysqli_query($conn,"SELECT * FROM customers WHERE email='".$mail."' AND password='".$pwd."' ") or die("There is an error");
                 $res = mysqli_fetch_array($query);
                 if(!empty($res['email']) && !empty($res['password'])){
+                    $_SESSION['email'] = $mail;
                     echo "<script type='text/javascript'>window.location.href = 'reservationForm.php';</script>";
                     exit();
                 }else{
