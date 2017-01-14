@@ -49,7 +49,7 @@ session_start(); ?>
 
                   <!-- Specify URLs -->
                   <input type='hidden' name='cancel_return' value='http://localhost/project/cancelpayment.php'>
-                  <input type='hidden' name='return' value='http://localhost/project/success.php'>
+                  <input type='hidden' name='return' value='http://localhost/project/paymentdone.php'>
 
                   <!-- Display the payment button. -->
                   <input type="image" name="submit" border="0"
