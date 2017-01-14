@@ -1,4 +1,6 @@
 
+<?php
+session_start(); ?>
 <html>
 <head>
     <title>Reservation Form</title>
@@ -86,7 +88,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#dildate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $( "#dildate" ).datepicker();
   } );
   
   </script>
@@ -194,13 +196,17 @@ input[name=dildate]:hover,[type=visnic]:hover{
                 
                 if ($error==FALSE){
                
-                $sql = "INSERT INTO `reservations`(`cusname`, `diladd`, `dildate`, `diltime`, `mobilenum`,`packname`,`Floral_tributes`,`Remembrance_booklet`,`Chairs_and_tents`,`Obituary_Notices`,`Crematorium_booking`,`Monumental_plaques`,`Funeral_pyres`,`Web_casting`,`Condolence_messeges`) VALUES ('$_POST[cusname]','$_POST[diladd]','$dildate','$diltime','$_POST[mobilenum]','$_POST[packname]','$_POST[service1]','$_POST[service2]','$_POST[service3]','$_POST[service4]','$_POST[service5]','$_POST[service6]','$_POST[service7]','$_POST[service8]','$_POST[service9]')";
+                $sql1 = "INSERT INTO `reservations`(`cusname`, `diladd`, `dildate`, `diltime`, `mobilenum`,`packname`,`Floral_tributes`,`Remembrance_booklet`,`Chairs_and_tents`,`Obituary_Notices`,`Crematorium_booking`,`Monumental_plaques`,`Funeral_pyres`,`Web_casting`,`Condolence_messeges`) VALUES ('$_POST[cusname]','$_POST[diladd]','$dildate','$diltime','$_POST[mobilenum]','$_POST[packname]','$_POST[service1]','$_POST[service2]','$_POST[service3]','$_POST[service4]','$_POST[service5]','$_POST[service6]','$_POST[service7]','$_POST[service8]','$_POST[service9]')";
 
-                if(mysqli_query($conn,$sql)){
-                    echo "<script type='text/javascript'>window.location.href = 'payhere.php';</script>";
-                    
+
+                if(mysqli_query($conn,$sql1)){
+                    #$_GET['no']=mysqli_insert_id($conn);
+                    $_SESSION['no']=mysqli_insert_id($conn);
+
+                    echo "<script type='text/javascript'>window.location.href ='payhere.php';</script>";
+                        #echo "<script type='text/javascript'>window.location.href = 'payhere.php?t='+amount;</script>";
+                                        
                 } else{echo "error";}
-                 
                 }
             }
         ?>
@@ -761,11 +767,14 @@ input[name=dildate]:hover,[type=visnic]:hover{
                                     document.getElementById("s9").innerHTML =  y;
                                     total=total+y;
                                     document.getElementById("total").innerHTML = total;
-
+                                    var amount = document.getElementById("total").innerHTML;
+                                   
                                 }
                                 </script>
-                            
-
+                                 <?php 
+                                    $amount="<script>amount</script>";
+                                    $_SESSION['amount']= $amount;
+                                ?>
                         </td>
                         <td><p id="s9"></p></td>
                     </tr>
@@ -780,20 +789,23 @@ input[name=dildate]:hover,[type=visnic]:hover{
                     <script>
                         
                         document.getElementById("total").innerHTML = total;
-                        //$total= var total;
-                        <?php
-                            $sql = "INSERT INTO reservations(total) VALUES ('$_GET['total']')";
-
-                            if(!(mysqli_query($conn,$sql)))
-                                echo "error";
-                        
-                        ?>
-                        
                         
                     </script>
                     </td>
 
-                    </tr>                    
+                    </tr> 
+                    <!--       
+                    <tr>
+                        <td>
+                            <script>
+                                function total(){
+
+                                    var amount = document.getElementById("total").innerHTML;
+                                    window.location.href = "payhere.php?amount=" + amount;
+                                }
+                            </script>
+                        </td>
+                    </tr> -->           
                 
                 <tr>
                      <td colspan="2">
