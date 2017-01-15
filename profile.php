@@ -26,8 +26,24 @@
 				
 				padding: 15px 30px;
 				background-color: #333;
-				
+				border-radius: 10px;
 				margin: 1px .5px;
+			}
+            
+            .list li:hover{
+				
+				padding: 15px 30px;
+				background-color: black;
+				margin: 1px .5px;
+                
+			}
+            
+            .list li:active{
+				
+				padding: 15px 30px;
+				background-color: white;
+				margin: 1px .5px;
+                
 			}
 			.list li a{
 				text-decoration: none;
@@ -35,6 +51,14 @@
 				text-align: center;
 				color: white;
 			}
+            
+            .list li a:hover{
+                color: darkgray;
+            }
+            
+            .list li a:active{
+                color: dimgray;
+            }
 			.pro-main{
 				margin: 0px 0px;
 				position: relative;
@@ -72,6 +96,35 @@
 				padding: 20px 40px;
 				color: white;
 			}
+            
+            .cube1{
+                min-height: 50px;
+				width: 100%;
+                padding-top: 20px;
+            }
+            .cube5{
+                min-height: 50px;
+                padding: 20px 50px;
+                border: 1px solid gray;
+            }
+            
+            .cube5 label{
+                font-size: 16px;
+            }
+            
+            .cube5 span{
+                font-size: 14px;
+                color: dimgray;
+            }
+            .cube2,.cube3,.cube4{
+                width: 100%;
+                padding: 10px 50px;
+            }
+            .fname{
+                color: dimgray;
+                font-size: 28px;
+                
+            }
 	    </style>
 	</head>
 	<body>
@@ -117,15 +170,24 @@
 						 	while($row = mysqli_fetch_array($result1))
 			      			{
 			      				$name .='
-			      				<div class="cube">
-			      				<label><b>Name : </b></label><span>'.$row["deadPersonName"].'</span>
+			      				<div class="cube1" align="center">
+			      				<b><span class="fname">'.$row["deadPersonName"].'</span></b>
 			      				</div>
+                                <hr>
 			      				';
 			      				if($name != NULL){
 			      				echo $name;
 			      				}
+                                $details .='
+			      				<div class="cube5">
+			      				<label><b>Description : </b></label><span>'.$row["Description"].'</span>
+			      				</div>
+			      				';
+                                if($details != NULL){
+			      				echo $details;
+			      				}
 			      				$school .='
-			      				<div class="cube">
+			      				<div class="cube2">
 			      				<label><b>School : </b></label><span>'.$row["school"].'</span>
 			      				</div>
 			      				';
@@ -133,7 +195,7 @@
 			      				echo $school;
 			      				}
 			      				$univer .='
-			      				<div class="cube">
+			      				<div class="cube3">
 			      				<label><b>University : </b></label><span>'.$row["university"].'</span>
 			      				</div>
 			      				';
@@ -141,20 +203,12 @@
 			      				echo $univer;
 			      				}
 			      				$employee .='
-			      				<div class="cube">
+			      				<div class="cube4">
 			      				<label><b>Employee : </b></label><span>'.$row["employee"].'</span>
 			      				</div>
 			      				';
 			      				if($employee != NULL){
 			      				echo $employee;
-			      				}
-			      				$details .='
-			      				<div class="cube">
-			      				<label><b>Description : </b></label><span>'.$row["Description"].'</span>
-			      				</div>
-			      				';
-			      				if($details != NULL){
-			      				echo $details;
 			      				}
 			      			}
 						 }

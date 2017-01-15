@@ -138,13 +138,61 @@
 			height: 25px;
 			background-color: #eee;
 		}
+        
+        .themeimage{
+            height: 100px;
+            width: 100%;
+            background-image: url(img/memories.jpg);
+        }
+        h3{
+            font-family: fantasy;
+        }
+        
+        hr{
+             border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+            
+        }
+        
+        .proimg{
+            border: 3px solid white;
+        }
+        .drop_item{
+            color: dimgray;
+            height: 50px;
+        }
+        
+        .image{
+            float: left;
+            height: 50px;
+            
+        }
+        
+        .text{
+            float: right;
+            margin-right: 110px;
+            color: dimgray;
+            font-size: 14px;
+        }
+        .dis{
+            color: darkgray;
+            font-size: 12px;
+        }
 	</style>
 </head>
 <body>
 <?php include 'temp/header.php';  ?>
 <div class="container">
+    
 <div class="headline" align="center">
-<h3 style="color: white;"><b>Memorize</b></h3></div>
+<h3 style="color: white;"><b>MEMORIES</b></h3></div>
+    <hr>
+    <div class="themeimage">
+    
+    </div>
+    <hr>
 	<form action="" method="POST">
 	<div class="itm" align="center">
 		<input type="text" name="city" id="homecity" list="drop_boxa" placeholder="Home city">

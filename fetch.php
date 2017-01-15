@@ -13,7 +13,7 @@
            $output .= ' 
             <li class="drop_item">
                 <a href="profile.php?id='.$row["deadPersonID"].'" class="person_link">
-                  <span>
+                  <div class="image">
                    
               ';
                   $sql_image = "SELECT * FROM deathpersondetails WHERE deadPersonID = '".$row["deadPersonID"]."'";
@@ -22,19 +22,17 @@
                      {
                       while($row_img = mysqli_fetch_array($result_image))
                       { 
-                      $output .= "<img src='img/profileImage/".$row['pro_img'].".jpg' width='50px' height='50px'>";
+                      $output .= "<img class='proimg' src='img/profileImage/".$row['pro_img'].".jpg' width='50px' height='50px'>";
                       }
                   }
-                $output .='  </span>
-                  <span>
+                $output .='  </div>
+                  <div class="text">
                     '.$row["deadPersonName"].'
-                  </span>
-                  <br>
-                  <span>
-                  </span>
-                  <span>
+                    <br>
+                    <span class="dis">
                     '.$row["Description"].'
-                  </span>
+                    </span>
+                  </div>
                 </a>
             </li> 
             <hr>
