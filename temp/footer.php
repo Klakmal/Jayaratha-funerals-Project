@@ -12,7 +12,7 @@
       <h3 style="color:gray; font-family:myfont1;">OUR SERVICES</h3>
       <ul style="font-family: Georgia, 'Times New Roman'; margin: 0 15px 0 0">
         <li style="border-bottom: 1px dotted #737a84; border-top: 1px dotted #737a84; padding: 3px 20px; letter-spacing: 2px"><a href="Packages.php" style="color:gray; font-family:myfont1;">Packages and services</a></li>
-        <li style="border-bottom: 1px dotted #737a84; padding: 3px 20px; letter-spacing: 2px"><a href="login.php" style="color:gray; font-family:myfont1;">Reservation form</a></li>
+        <li style="border-bottom: 1px dotted #737a84; padding: 3px 20px; letter-spacing: 2px"><a href="reservationForm.php" style="color:gray; font-family:myfont1;">Reservation form</a></li>
         <li style="border-bottom: 1px dotted #737a84; padding: 3px 20px; letter-spacing: 2px"><a href="prepaidplan.php" style="color:gray; font-family:myfont1;">Pre-paid plan</a></li>
       </ul>
     </div>

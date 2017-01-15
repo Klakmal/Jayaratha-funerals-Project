@@ -1,6 +1,4 @@
 <?php include 'session.php';  ?>
-<?php
-session_start(); ?>
 <html>
 <head>
     <title>Reservation Form</title>
