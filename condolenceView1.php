@@ -1,63 +1,43 @@
-<html>
-<title>Condolence View screen</title>
-<body>
-
-<h1>Condolence messages</h1>
- <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
- <input type="text" name="deadname">
- <input type="submit" value="VIEW" name="view"> </form>
-<?php
+<?php require "dbcon/dbcon.php"; ?>
+	<title>Condolence View screen</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/menu/simple_menu.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="css/contactUs.css">
 
 
-    require "dbcon/dbcon.php";	
-	if (isset($_POST['view'])) {
-                    
-                    if(empty($_POST['deadname'])){ 
-                        $deadnameerr = "</br>Dead person Name is required";
-                        $error = TRUE;
-                    }else{
-                        $deadname = $_POST['deadname'];
-						$error=FALSE;
-                    }
-                  if ($error==FALSE){
-					  $sql = "SELECT * FROM acceptvisitor WHERE deadname='$deadname'";
-	$query=(mysqli_query($conn,$sql));
-    echo '<table class = tbl>';
-		$url1=$_SERVER['REQUEST_URI'];
-		header("Refresh: 30; URL=$url1");
-    while ($row = mysqli_fetch_assoc($query)){
-        echo '<tr class = "row">';
-        echo '<td class = "col1">';
+	
+<div id="par1" align="center">
+		<div id="par" align="center">
+			<div >	
+				<h1><center class="contact_header" style = "font-family: myfont1; color: #a86205;"><b>Condolence messages</b></center></h1>
+				<hr class="hh1">
+			</div>
+			<div class="tb" align="center">
+				
+							<h2> Jayarathne Funeral Directors (PVT)LTD</h2>
+							<hr class="hh1"><br><br>
+							
+						<div></div>
+						<div>
+						<form action="condolenceView.php" method="post">
+							<input type="text" name="deadPersonID" placeholder="-- Dead Person ID --" required>
+							<input type="submit" value="VIEW" name="view"> <br><br>
+						</form>
+					</div>	
+					<div> </div>
+					
+			</div>
+		</div>
+	</div>
 
-        echo $row['visname'];
-        echo '<br>';
-                echo '<br>';
-        echo "message : ";
-
-        echo $row['message'];
-        
-        echo '</td>';
-        
-        
-        echo '<td class = "col2">';
-        echo "relation";
-        echo '<br>';
-        echo $row['relation'];
-        
-        echo '</td>';
-        echo '</tr>';
-
-
-    }
-				  }
+	<script>
+	function load(){
+		$(document).ready(function(){
+		$("#msg").load("condolenceView1.php #msg");
+			location.reload(2);
+		});
 	}
-
-
-
-
-
-    
-    ?>
-
-</body>
-</html>
+	
+	    
+	</script>

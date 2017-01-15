@@ -404,3 +404,6 @@ a {color: #2997AB; text-decoration: none}
 	clear: both;
 	padding: 10px;	
 }
+table#t01 { width: 100%; }
+table#t01 th {color: #a86205; padding: 10px; text-align: center; }
+table#t01 td { padding: 5px 2px 2px 5px;color: #a86205; }
