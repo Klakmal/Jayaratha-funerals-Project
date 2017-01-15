@@ -22,15 +22,15 @@
                      {
                       while($row_img = mysqli_fetch_array($result_image))
                       { 
-                      $output .= "<img class='proimg' src='img/profileImage/".$row['pro_img'].".jpg' width='50px' height='50px'>";
+                      $output .= '<img class="proimg" src = "data:image;base64,'.base64_encode($row['pro_img']).'" width="50px" height="50px">';
                       }
                   }
                 $output .='  </div>
                   <div class="text">
                     '.$row["deadPersonName"].'
                     <br>
-                    <span class="dis">
-                    '.$row["Description"].'
+                    <span class="dis">City :
+                    '.$row["homecity"].'
                     </span>
                   </div>
                 </a>

@@ -29,7 +29,12 @@
 				border-radius: 10px;
 				margin: 1px .5px;
 			}
-            
+            .active{
+				padding: 15px 30px;
+				background-color:firebrick;
+				border-radius: 10px;
+				margin: 1px .5px;
+			}
             .list li:hover{
 				
 				padding: 15px 30px;
@@ -145,12 +150,12 @@
 							 {
 							 	while($row_img = mysqli_fetch_array($result_image))
 				      			{	
-				      				echo "<img src='img/profileImage/".$row_img['pro_img'].".jpg' width='250px' height='325px'>";
+				      				echo '<img src = "data:image;base64,'.base64_encode($row_img['pro_img']).'" width="250px" height="325px">';
 				      			}
 				      		}
 						?>
 						<ul class="list">
-						<li><a href="">Details</a></li>
+						<li class="active"><a href="">Details</a></li>
 						<li><a href="condolence.php?id=<?php echo $id; ?>">Condolence message</a></li>
 						<li><a href="personalGallery.php?id=<?php echo $id; ?>">Gallery</a></li>
 						<li><a href="webcasting.php?id=<?php echo $id; ?>">Video</a></li>
