@@ -15,6 +15,44 @@ session_start(); ?>
         $sql = "SELECT * FROM reservations WHERE res_id=$id";
         $result=mysqli_query($conn,$sql);
         $row=mysqli_fetch_assoc($result);
+        echo '<div id="par1" align="center" >';
+        echo '<div id="par" align="center" > <br>';
+
+        echo $row['cusname'] .'... You, selected: ';
+        echo $row['packname'] . '<br>';
+
+        #if (!$row['Remembrance_booklet'] == false)
+        echo 'Remembrance booklet: ' . $row['Remembrance_booklet'] . '<br>';
+
+        if (!($row['Floral_tributes'] == false))
+        echo 'Floral tributes <br>';
+
+        if (!($row['Chairs_and_tents'] == false))
+        echo 'Chairs and tents <br>';
+
+        if (!($row['Obituary_Notices'] == false))
+        echo 'Obituary_Notices <br>';
+
+        if (!($row['Crematorium_booking'] == 'no'))
+        echo 'Crematorium booking <br>';
+
+        if (!($row['Monumental_plaques'] == false))
+        echo 'Monumental plaques <br>';
+
+        if (!($row['Funeral_pyres'] == 'no'))
+        echo 'Funeral pyres <br>';
+
+        if (!($row['Web_casting'] == 'no'))
+        echo 'Web casting <br>';
+
+        if (!($row['Condolence_messeges'] == false))
+        echo 'Condolence_messeges <br>';
+
+        #echo 'Total: ' . $row['total'];
+
+        echo '<br><br>';
+        
+       
         /*
         $sql = "INSERT INTO reservations('total') VALUES ('$_GET[amount]')";
 
@@ -55,18 +93,20 @@ session_start(); ?>
                   <input type="image" name="submit" border="0"
                   src="https://www.surfaceskimmers.com/wp-content/uploads/2016/10/1431389879455.png" width="150" height="40"
                   alt="Buy Now">
-                  <img alt="" border="0" width="0.5" height="0.5"
+                  <img alt="" border="0" width="0.5" height="0.5" 
                   src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
 
                 </form>
                 </td>
            
             
-             <td colspan="2">
+             <td colspan="2" >
                   <input type="button" value="Cancle" name="cancle" onclick="document.location.href='/project/index.php'" >
             </td>
         </tr>
         </table>
+        </div>
+        </div>
         </div>
           
         <!-- include footer 

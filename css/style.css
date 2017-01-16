@@ -33,6 +33,36 @@ body {	font-family: Arial, Helvetica, sans-serif;
 		/*background: #fff url(../img/body_bg2.png);*/
 		background-color: #222326;
 }
+
+input[type=button]{
+	margin: 5px;
+	float: center;
+	border:none;
+	background-color: #70102e;
+	color:white;
+	width: 85px;
+	height: 30px;
+	float:right;
+}
+
+input[type=button]:hover{
+	background-color: white;
+	color:gray;
+	width: 85px;
+	height: 30px;
+	transition: box-shadow 0.1s, border 0.2s;
+	box-shadow: 0 0 5px 3px #969696;
+	
+}
+input[type=button]:active{
+	background-color: black;
+	color:gray;
+	width: 85px;
+	height: 30px;
+	transition: box-shadow 0.3s, border 1s;
+	box-shadow: 0 0 3px 1px #1c1c1c;
+	
+}
  
 #container {
 	font-size: 1em;
@@ -43,6 +73,28 @@ body {	font-family: Arial, Helvetica, sans-serif;
 	margin: auto;
 	position: relative;
 	clear: both;
+}
+
+#par{
+
+	float:center;
+	background-color:; 
+	font-family: myfont1;
+	font-size: 14px;
+	padding: 20px;
+	width: 900px;s
+	border-radius: 10px;
+	border: 2px solid #2d3234;
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(66,66,66,1);
+	-moz-box-shadow: 0px 0px 30px 0px rgba(66,66,66,1);
+	box-shadow: 0px 0px 30px 0px rgba(66,66,66,1);
+	
+}
+#par1{
+	background-color: ;
+	padding: 40px;
+	color: #b8b8b8;
+
 }
 
 .header{
