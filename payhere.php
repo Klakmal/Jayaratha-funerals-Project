@@ -24,19 +24,19 @@ session_start(); ?>
         #if (!$row['Remembrance_booklet'] == false)
         echo 'Remembrance booklet: ' . $row['Remembrance_booklet'] . '<br>';
 
-        if (!($row['Floral_tributes'] == false))
+        if (!($row['Floral_tributes'] == 'false'))
         echo 'Floral tributes <br>';
 
-        if (!($row['Chairs_and_tents'] == false))
+        if (!($row['Chairs_and_tents'] == 'false'))
         echo 'Chairs and tents <br>';
 
-        if (!($row['Obituary_Notices'] == false))
+        if (!($row['Obituary_Notices'] == 'false'))
         echo 'Obituary_Notices <br>';
 
         if (!($row['Crematorium_booking'] == 'no'))
         echo 'Crematorium booking <br>';
 
-        if (!($row['Monumental_plaques'] == false))
+        if (!($row['Monumental_plaques'] == 'false'))
         echo 'Monumental plaques <br>';
 
         if (!($row['Funeral_pyres'] == 'no'))
@@ -45,21 +45,41 @@ session_start(); ?>
         if (!($row['Web_casting'] == 'no'))
         echo 'Web casting <br>';
 
-        if (!($row['Condolence_messeges'] == false))
+        if (!($row['Condolence_messeges'] == 'false'))
         echo 'Condolence_messeges <br>';
 
-        #echo 'Total: ' . $row['total'];
+        echo 'Total: Rs. ' . $row['total']. '.00';
 
         echo '<br><br>';
         
        
         /*
-        $sql = "INSERT INTO reservations('total') VALUES ('$_GET[amount]')";
+          https://www.sandbox.paypal.com/cgi-bin/webscr  //sandbox api url
+          maiperera93@gmail.com
+          ammamagerajina<3
 
-         if(!(mysqli_query($conn,$sql)))
-               
-            echo "error";https://www.paypal.com/cgi-bin/webscr
-        */
+          jayaratnefuneraldirectors@gmail.com
+          ucsc@123
+
+          maiperera93-facilitator@gmail.com(buisiness)
+          ucsc@123
+
+          maiperera93-buyer@gmail.com(personal)
+          ucsc@123
+          Bank Account
+          Account Number:
+          60387364
+          Routing Number:
+          325272063
+          Credit Card
+          Credit Card Number:
+          4032036726968108
+          Credit Card Type:
+          VISA
+          Expiration Date:
+          12/2021
+          PayPal
+         */
         ?>
 
           <div id="payHere">
@@ -81,7 +101,7 @@ session_start(); ?>
 
                   <!-- Specify details about the item that buyers will purchase. -->
                   <input type="hidden" name="item_name" value="<?php echo $row['packname']; ?>">
-                  <input type="hidden" name="amount" value="<?php echo $row['total']; ?>">
+                  <input type="hidden" name="amount" value="<?php echo sprintf("%.2f",($row['total']/50000)); ?>">
                   <input type="hidden" name="currency_code" value="USD">
                   <input type="hidden" name="reservation_id" value="<?php echo $row['res_id']; ?>">
 

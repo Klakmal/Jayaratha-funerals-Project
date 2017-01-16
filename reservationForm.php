@@ -191,16 +191,19 @@ input[name=dildate]:hover,[type=visnic]:hover{
                 }else{
                     $service9 = $_POST['service9'];
                 }
+                if(empty($_POST['totalam'])){
+                    $error = TRUE;
+                }
                 
                 if ($error==FALSE){
                
-                $sql1 = "INSERT INTO `reservations`(`cusname`, `diladd`, `dildate`, `diltime`, `mobilenum`,`packname`,`Floral_tributes`,`Remembrance_booklet`,`Chairs_and_tents`,`Obituary_Notices`,`Crematorium_booking`,`Monumental_plaques`,`Funeral_pyres`,`Web_casting`,`Condolence_messeges`) VALUES ('$_POST[cusname]','$_POST[diladd]','$dildate','$diltime','$_POST[mobilenum]','$_POST[packname]','$_POST[service1]','$_POST[service2]','$_POST[service3]','$_POST[service4]','$_POST[service5]','$_POST[service6]','$_POST[service7]','$_POST[service8]','$_POST[service9]')";
+                $sql1 = "INSERT INTO `reservations`(`cusname`, `diladd`, `dildate`, `diltime`, `mobilenum`,`packname`,`Floral_tributes`,`Remembrance_booklet`,`Chairs_and_tents`,`Obituary_Notices`,`Crematorium_booking`,`Monumental_plaques`,`Funeral_pyres`,`Web_casting`,`Condolence_messeges`,`total`) VALUES ('$_POST[cusname]','$_POST[diladd]','$dildate','$diltime','$_POST[mobilenum]','$_POST[packname]','$_POST[service1]','$_POST[service2]','$_POST[service3]','$_POST[service4]','$_POST[service5]','$_POST[service6]','$_POST[service7]','$_POST[service8]','$_POST[service9]','$_POST[totalam]')";
 
 
                 if(mysqli_query($conn,$sql1)){
                     #$_GET['no']=mysqli_insert_id($conn);
                     $_SESSION['no']=mysqli_insert_id($conn);
-
+                    
                     echo "<script type='text/javascript'>window.location.href ='payhere.php';</script>";
                         #echo "<script type='text/javascript'>window.location.href = 'payhere.php?t='+amount;</script>";
                                         
@@ -210,7 +213,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
         ?>
         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
         <div id="res3">
-            <form id="f4" action="reservationForm.php" method="post">
+            <form id="f4" action="reservationForm.php" method="post" onsubmit="return finalfun()">
             <table id="tb4">
                 <tr>
                     <td colspan="2">
@@ -551,6 +554,8 @@ input[name=dildate]:hover,[type=visnic]:hover{
                                     total=total+y;
                                     document.getElementById("total").innerHTML = total;
                                 }
+
+
                                 </script>
                             
 
@@ -588,6 +593,8 @@ input[name=dildate]:hover,[type=visnic]:hover{
                                     total=total+y;
                                     document.getElementById("total").innerHTML = total;
                                 }
+
+
                                 </script>
                             
 
@@ -766,6 +773,8 @@ input[name=dildate]:hover,[type=visnic]:hover{
                                     total=total+y;
                                     document.getElementById("total").innerHTML = total;
                                     var amount = document.getElementById("total").innerHTML;
+
+                                    document.getElementById("totalam").value = total;
                                    
                                 }
                                 </script>
@@ -785,7 +794,10 @@ input[name=dildate]:hover,[type=visnic]:hover{
                     <td>
                             <p id="total"></p>
                     <script>
-                        
+                        function finalfun(){
+                                     document.getElementById("totalam").value = total;
+                                     return true;
+                                }
                         document.getElementById("total").innerHTML = total;
                         
                     </script>
@@ -807,6 +819,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
                 
                 <tr>
                      <td colspan="2">
+                        <input type="hidden" id="totalam" name="totalam" value="0">
                         <input type="submit" value="Submit" name="submit"> 
                         <input type="reset" value="Cancle" name="cancle">
                     </td>
