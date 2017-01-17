@@ -20,9 +20,9 @@
 							
 						<div></div>
 						<div>
-						<form action="condolenceView.php" method="post">
+						<form method="post" action="view.php">
 							<input type="text" name="deadPersonID" placeholder="-- Dead Person ID --" required>
-							<input type="submit" value="VIEW" name="view"> <br><br>
+							<input type="submit" value="Search" name="insert"> <br><br>
 						</form>
 					</div>	
 					<div> </div>
