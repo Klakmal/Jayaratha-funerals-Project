@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Memorize</title>
+	<title>Memories</title>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/menu/simple_menu.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -144,8 +144,9 @@
             width: 100%;
             background-image: url(img/memories.jpg);
         }
-        h3{
-            font-family: fantasy;
+        h1{
+            font-family: myfont1;
+            color: #a86205;
         }
         
         hr{
@@ -187,7 +188,7 @@
 <div class="container">
     
 <div class="headline" align="center">
-<h3 style="color: white;"><b>MEMORIES</b></h3></div>
+<h1><b>MEMORIES</b></h1></div>
     <hr>
     <div class="themeimage">
     

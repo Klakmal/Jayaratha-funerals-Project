@@ -82,7 +82,7 @@
 				margin-top: 0px; 
 			}
 			.bar{
-				background-color: white;
+				background-color: #333;
 				min-height: 540px;
 				margin: 2px;
 			}
