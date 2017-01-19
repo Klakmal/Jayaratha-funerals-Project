@@ -90,7 +90,7 @@
 				margin-top: 0px; 
 			}
 			.bar{
-				background-color: white;
+				background-color: #333;
 				min-height: 540px;
 				margin: 2px;
 			}
@@ -119,14 +119,14 @@
             
             .cube5 span{
                 font-size: 14px;
-                color: dimgray;
+                color: #f1f1f1;
             }
             .cube2,.cube3,.cube4{
                 width: 100%;
                 padding: 10px 50px;
             }
             .fname{
-                color: dimgray;
+                color: #f1f1f1;
                 font-size: 28px;
                 
             }
@@ -180,39 +180,39 @@
 			      				</div>
                                 <hr>
 			      				';
-			      				if($name != NULL){
+			      				if($row["deadPersonName"]){
 			      				echo $name;
 			      				}
                                 $details .='
 			      				<div class="cube5">
-			      				<label><b>Description : </b></label><span>'.$row["Description"].'</span>
+			      				<label style="color:white;"><b>Description : </b></label><span style="color:#f1f1f1;">'.$row["Description"].'</span>
 			      				</div>
 			      				';
-                                if($details != NULL){
+                                if($row["Description"]){
 			      				echo $details;
 			      				}
 			      				$school .='
 			      				<div class="cube2">
-			      				<label><b>School : </b></label><span>'.$row["school"].'</span>
+			      				<label style="color:white;"><b>School : </b></label><span style="color:#f1f1f1;">'.$row["school"].'</span>
 			      				</div>
 			      				';
-			      				if($school != NULL){
+			      				if($row["school"]){
 			      				echo $school;
 			      				}
 			      				$univer .='
 			      				<div class="cube3">
-			      				<label><b>University : </b></label><span>'.$row["university"].'</span>
+			      				<label style="color:white;"><b>University : </b></label><span style="color:#f1f1f1;">'.$row["university"].'</span>
 			      				</div>
 			      				';
-			      				if($univer != NULL){
+			      				if($row["university"]){
 			      				echo $univer;
 			      				}
 			      				$employee .='
 			      				<div class="cube4">
-			      				<label><b>Employee : </b></label><span>'.$row["employee"].'</span>
+			      				<label style="color:white;"><b>Employee : </b></label><span style="color:#f1f1f1;">'.$row["employee"].'</span>
 			      				</div>
 			      				';
-			      				if($employee != NULL){
+			      				if($row["employee"]){
 			      				echo $employee;
 			      				}
 			      			}

@@ -18,7 +18,7 @@
   <div class="clr"></div>
   <!-- menu 2 -->
   <ol id="menu2" class="simple_menu simple_menu_css horizontal black_menu">
-    <li><a href="memorize.php" style="font-family:myfont1;">MEMORIZE</a></li>
+    <li><a href="memorize.php" style="font-family:myfont1;">MEMORIES</a></li>
     <li><a href="feedback.php" style="font-family:myfont1;">FEED-BACK</a></li>
   </ol>
   <div class="clr"></div>
