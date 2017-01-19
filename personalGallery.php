@@ -4,7 +4,7 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
 	    <link rel="stylesheet" type="text/css" media="screen" href="css/menu/simple_menu.css">
-<!--	    <link rel="stylesheet" type="text/css" href="css/profile.css">-->
+
 	    <style type="text/css">
 			.container1{
 				width: 100%;
@@ -96,15 +96,18 @@
 	    </style>
 	</head>
 	<body>
-		<?php include 'temp/header.php'; ?>
-		<?php $id = $_GET["id"]; ?>
+
+		<?php 
+		#incude the header
+		include 'temp/header.php'; 
+		#to take the deadperson id 
+		$id = $_GET["id"]; ?>
 		<div class="container1" align="center">
 			<div class="container2">
 				<div class="pro-main">
 					<div class="pro1">
 						<div class="picture">
-			<!--			<img src="getImage.php?id=<?php echo $id; ?>" width="250px" height="325px">			-->
-
+			
 						<?php
 							require "dbcon/dbcon.php";
 							$sql_image = "SELECT * FROM deathpersondetails WHERE deadPersonID = '".$id."'";
@@ -129,13 +132,10 @@
 						<div class="bar" align="left">
 						
 
-							<?php
-								$imageTotal="";
-								$link="";
-							?>
 							<div class="cont1" align="center">
 							    <div class="cont2" align="left">
 							        <?php
+							        	#connect to the database
 							            require "dbcon/dbcon.php";
 							        $query=null;
 							            $error=FALSE;   
@@ -143,6 +143,7 @@
 							                
 											$deadname = $id;
 							                  if ($error==FALSE){  
+							                #select the row where the dead person id belongs to
 							                $sql="SELECT * FROM personalGallery WHERE deadPersonID='$deadname'";
 							                $query=(mysqli_query($conn,$sql));
 							                }
@@ -151,6 +152,7 @@
 											<?php 
 							                if ($query != null) {
 							                    while ($row = mysqli_fetch_assoc($query)){
+							                    	#take the primary key of the personal gallery table no
 							                        $no = $row['no'];
 							                    }
 							                }
@@ -161,22 +163,20 @@
 							                    
 							                    if($query){
 							                        while($row = mysqli_fetch_assoc($query)){
-							                            $link = $row['link'];
 														$imageTotal = $row['num_images'];
+														$deadPersonID = $row['deadPersonID'];
 							                        }
 							                    }
 
 							                }                                      
 							                ?>
 											
-
+							        <!--displaying photos-->
 								    <div class="galleryContainer" align="left" style="padding: 15px; background-color: #333;">
 										<div class="galleryThumbnails">
 										<?php
 											for ($t=1;$t<=$imageTotal;$t++){
-												echo '<a href="javascript: changeimage('.$t.')" class="thumbnailsimage'.$t.'"><img src="'.$link.''.$t.'.jpg" width="auto" height="180" alt="" style="margin: 3px;"/></a>';
-												#onima format ekakata hadanna jpg eka
-												#nama saha total numberth wenas karaganna balanna
+												echo '<a href="javascript: changeimage('.$t.')" class="thumbnailsimage'.$t.'"><img src="personalGallery/'.$deadPersonID.'/'.$t.'.jpg" width="auto" height="180" alt="" style="margin: 3px;"/></a>';
 											}
 										?>
 										</div>

@@ -205,7 +205,6 @@ input[name=dildate]:hover,[type=visnic]:hover{
                     $_SESSION['no']=mysqli_insert_id($conn);
                     
                     echo "<script type='text/javascript'>window.location.href ='payhere.php';</script>";
-                        #echo "<script type='text/javascript'>window.location.href = 'payhere.php?t='+amount;</script>";
                                         
                 } else{echo "error";}
                 }
@@ -522,14 +521,14 @@ input[name=dildate]:hover,[type=visnic]:hover{
                     <tr>
                         <td colspan="2">
                             
-                            <div id="pa2"><font color ="white"><label for="service3">Assisting to hire Chairs and tents</label>
+                            <div id="pa2"><span style="color: white; "><label for="service3">Assisting to hire Chairs and tents</label>
                             <select id="service3" onchange="s3func()" name=service3>
                                 <option value='false'>--None--</option>
                                 <option value='op1'>Gold</option>
                                 <option value='op2'>Silver</option>
                                 <option value='op3'>Bronze</option>
                             </select>
-                            </font></div>
+                            </span></div>
                         </td>
                          <script>
                                 function s3func() {
@@ -804,18 +803,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
                     </td>
 
                     </tr> 
-                    <!--       
-                    <tr>
-                        <td>
-                            <script>
-                                function total(){
-
-                                    var amount = document.getElementById("total").innerHTML;
-                                    window.location.href = "payhere.php?amount=" + amount;
-                                }
-                            </script>
-                        </td>
-                    </tr> -->           
+                              
                 
                 <tr>
                      <td colspan="2">

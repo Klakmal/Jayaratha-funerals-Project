@@ -15,13 +15,16 @@ session_start(); ?>
         $sql = "SELECT * FROM reservations WHERE res_id=$id";
         $result=mysqli_query($conn,$sql);
         $row=mysqli_fetch_assoc($result);
+
+        #displaying selected packages and services
         echo '<div id="par1" align="center" >';
         echo '<div id="par" align="center" > <br>';
-
+        #customer name
         echo $row['cusname'] .'... You, selected: ';
+        #package name
         echo $row['packname'] . '<br>';
 
-        #if (!$row['Remembrance_booklet'] == false)
+        #services
         echo 'Remembrance booklet: ' . $row['Remembrance_booklet'] . '<br>';
 
         if (!($row['Floral_tributes'] == 'false'))
@@ -54,6 +57,7 @@ session_start(); ?>
         
        
         /*
+        paypal details
           https://www.sandbox.paypal.com/cgi-bin/webscr  //sandbox api url
           maiperera93@gmail.com
           ammamagerajina<3
@@ -91,15 +95,16 @@ session_start(); ?>
                 </form>
                 </td>
                 <td>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><!--test paypal API URL-->
+                <!--test paypal API URL-->
+                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 
-                  <!-- Identify your business so that you can collect the payments. -->
-                  <input type="hidden" name="business" value="jayaratnefuneraldirectors@gmail.com"><!--Business email-->
+                  <!--Business email-->
+                  <input type="hidden" name="business" value="jayaratnefuneraldirectors@gmail.com">
 
-                  <!-- Specify a Buy Now button. -->
+                  <!-- Buy Now button. -->
                   <input type="hidden" name="cmd" value="_xclick">
 
-                  <!-- Specify details about the item that buyers will purchase. -->
+                  <!-- item that buyers will purchase. -->
                   <input type="hidden" name="item_name" value="<?php echo $row['packname']; ?>">
                   <input type="hidden" name="amount" value="<?php echo sprintf("%.2f",($row['total']/50000)); ?>">
                   <input type="hidden" name="currency_code" value="USD">
@@ -126,10 +131,7 @@ session_start(); ?>
         </tr>
         </table>
         </div>
-        </div>
-        </div>
-          
-        <!-- include footer 
-        <?php #include 'temp/footer.php';?>-->
+
+        <!-- include footer -->
     </body>
 </html>

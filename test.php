@@ -22,17 +22,17 @@
                 $deadnameerr = "";
                 
                 if (isset($_POST['view'])) {
-                    
-                    if(empty($_POST['deadname'])){ 
+
+                    if (empty($_POST['deadname'])) {
                         $deadnameerr = "</br>Dead person Name is required";
                         $error = TRUE;
-                    }else{
+                    } else {
                         $deadname = $_POST['deadname'];
                     }
-                  if ($error==FALSE){  
-                $sql="SELECT * FROM personalGallery WHERE deadname='$deadname'";
-                $query=(mysqli_query($conn,$sql));
-                }
+                    if ($error == FALSE) {
+                        $sql = "SELECT * FROM personalGallery WHERE deadname='$deadname'";
+                        $query = (mysqli_query($conn, $sql));
+                    }
                 }
         ?>
 	    <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
@@ -89,6 +89,7 @@
                         while($row = mysqli_fetch_assoc($query)){
                             $link = $row['link'];
 							$imageTotal = $row['num_images'];
+							$deadPersonID = $row['deadPersonID'];
                         }
                     }
 
@@ -101,9 +102,7 @@
 			<div class="galleryThumbnails">
 			<?php
 				for ($t=1;$t<=$imageTotal;$t++){
-					echo '<a href="javascript: changeimage('.$t.')" class="thumbnailsimage'.$t.'"><img src="'.$link.''.$t.'.jpg" width="auto" height="250" alt=""/></a>';
-					#onima format ekakata hadanna jpg eka
-					#nama saha total numberth wenas karaganna balanna
+					echo '<a href="javascript: changeimage('.$t.')" class="thumbnailsimage'.$t.'"><img src="personalGallery/'.$deadPersonID.''.$t.'.jpg" width="auto" height="250" alt=""/></a>';
 				}
 			?>
 			</div>

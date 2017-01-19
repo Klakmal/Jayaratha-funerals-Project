@@ -11,7 +11,7 @@
         require "dbcon/dbcon.php"; 	
 
 		//Store transaction information from PayPal
-		$res_id = $_GET['reservation_id']; 
+		#$res_id = $_GET['reservation_id']; 
 		$item_name = $_GET['item_name']; 
 		$txn_id = $_GET['tx'];
 		$total_amount = $_GET['amt'];
@@ -37,12 +37,12 @@
 		        $last_insert_id =mysqli_insert_id($conn);
 		    }
 		?>
-			<center><h1 style="background-color:#000000;color:white"> Your PayPal transaction has been suceeded. </h1></center>
+			<div style="text-align: center;"><h1 style="background-color:#000000;color:white"> Your PayPal transaction has been suceeded. </h1></div>
 		    <h1>Your Payment ID - <?php echo $last_insert_id; ?>.</h1>
 		<?php
 		}else{
 		?>
-			<center><h1 style="background-color:#000000;color:white"> Your PayPal transaction has failed. </h1></center>
+			<div style="text-align: center;"><h1 style="background-color:#000000;color:white"> Your PayPal transaction has failed. </h1></div>
 		<?php
 		}
 		?>

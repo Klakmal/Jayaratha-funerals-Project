@@ -32,6 +32,7 @@
   			} else {
 		  		$link = test_input($_POST["link"]);
 		  	}
+
 		  	*/
 
 		  	if (empty($_POST["totalImages"])) {
