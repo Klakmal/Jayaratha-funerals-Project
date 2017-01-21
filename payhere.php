@@ -20,7 +20,7 @@ session_start(); ?>
         echo '<div id="par1" align="center" >';
         echo '<div id="par" align="center" > <br>';
         #customer name
-        echo $row['cusname'] .'... You, selected: ';
+        echo $row['deadname'] .'... You, selected: ';
         #package name
         echo $row['packname'] . '<br>';
 
@@ -112,7 +112,7 @@ session_start(); ?>
 
                   <!-- Specify URLs -->
                   <input type='hidden' name='cancel_return' value='http://localhost/project/cancelpayment.php'>
-                  <input type='hidden' name='return' value='http://localhost/project/paymentdone.php'>
+                  <input type='hidden' name='return' value='http://localhost/project/success.php'>
 
                   <!-- Display the payment button. -->
                   <input type="image" name="submit" border="0"

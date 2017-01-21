@@ -11,12 +11,12 @@
         require "dbcon/dbcon.php"; 	
 
 		//Store transaction information from PayPal
-		#$res_id = $_GET['reservation_id']; 
-		$item_name = $_GET['item_name']; 
-		$txn_id = $_GET['tx'];
-		$total_amount = $_GET['amt'];
-		$currency_code = $_GET['cc'];
-		$payment_status = $_GET['st'];
+		$res_id = $_REQUEST['reservation_id']; 
+		$item_name = $_REQUEST['item_name']; 
+		$txn_id = $_REQUEST['tx'];
+		$total_amount = $_REQUEST['amt'];
+		$currency_code = $_REQUEST['cc'];
+		$payment_status = $_REQUEST['st'];
 
 		//Get product price
 		$sql="SELECT total FROM reservations WHERE res_id = $res_id";
