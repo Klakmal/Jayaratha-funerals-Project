@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <style type="text/css">
         #correctname,#nic_status,#length_error,#notmatch,#check4n,#dateerror,#gnderr,#nic_status,#email_status{
             color: red;
@@ -203,16 +202,16 @@
         }
 
         function countdays(year,month,day,days) {
-            var count = 1;
+            var count = 0;
             for (i = 1; i<month+1; i++){
                 if (i == 2) {
                     count = count + 31;
                 }
                 if (i == 3) {
                     if (year%4 == 0){
-                        count = count + 29-1;
+                        count = count + 29;
                     }else{
-                        count = count + 28;
+                        count = count + 29;
                     } 
                 }
                 if (i == 4 ) {
@@ -432,13 +431,6 @@
             }else{
                 $cname = $_POST['cusname'];
             }
-            
-          if(empty($_POST['deadname'])){ 
-                $dnameerr = "</br>* ";
-                $error = TRUE;
-            }else{
-                $dname = $_POST['deadname'];
-            }
             if(empty($_POST['nic'])){ 
                 $nicerr = "* ";
                 $error = TRUE;
@@ -508,7 +500,7 @@
 
              if ($error==FALSE){
            
-            $sql = "INSERT INTO customers (cusname,deadname,nic,address,connumber,password,repassword,email,gender,dob) VALUES ('".$cname."','".$dname."','".$nic."','".$address."','".$connumber."','".$password."','".$repassword."','".$email."','".$gender."','".$dob."')";
+            $sql = "INSERT INTO customers (cusname,nic,address,connumber,password,repassword,email,gender,dob) VALUES ('".$cname."','".$nic."','".$address."','".$connumber."','".$password."','".$repassword."','".$email."','".$gender."','".$dob."')";
             if(mysqli_query($conn,$sql)){
                 die();
             } else{echo "error";}
@@ -536,13 +528,6 @@
             </tr>
             <tr>
                 <td colspan="2"><p id = ""><span id="correctname"></span></p></td>
-            </tr>
-            <tr>
-                
-                    <td><label for="deadname">Dead Person Name</label><span class="error"><?php echo $dnameerr;?></span></td>
-                    
-                    <td><input type="text" name="deadname" id="deadname" required></td>
-            
             </tr>
             <tr>
                 <td colspan="2"><p id = ""></p></td>

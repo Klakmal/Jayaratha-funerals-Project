@@ -76,6 +76,10 @@ input[name=dildate]:hover,[type=visnic]:hover{
     border-radius: 4px;
     box-shadow: 4px 2px  #444;
 }
+        
+        .containerx{
+            width: 600px;
+        }
     </style>
 
 <!--date picker eke jquery -->
@@ -86,7 +90,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#dildate" ).datepicker();
+    $( "#datepicker" ).datepicker();
   } );
   
   </script>
@@ -99,19 +103,20 @@ input[name=dildate]:hover,[type=visnic]:hover{
 
 <div class = "resd1 " align="center">
     <div class="resd2">
+        <div class="containerx">
     <?php
         require "dbcon/dbcon.php";
 
         $error=FALSE;
-            $cusnameerr = $diladderr = $dildateerr = $diltmerr = $mobilenoerr =$packname = $service1 = $service2 = $service3=$service4=$service5= $service6= $service7=$service8s="";
+            $deadnameerr = $diladderr = $dildateerr = $diltmerr = $mobilenoerr =$packname = $service1 = $service2 = $service3=$service4=$service5= $service6= $service7=$service8s="";
             
             if (isset($_POST['submit'])) {
                 
-                if(empty($_POST['cusname'])){ 
-                    $cusnameerr = "required";
+                if(empty($_POST['deadname'])){ 
+                    $deadnameerr = "required";
                     $error = TRUE;
                 }else{
-                    $cusname = $_POST['cusname'];
+                    $deadname = $_POST['deadname'];
                 }
                 
                 if(empty($_POST['diladd'])){ 
@@ -128,7 +133,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
                     $dildate = $_POST['dildate'];
                 }
                 
-                
+                echo $dildate;
                 $hours=$_POST['hours'];
                 $mins=$_POST['mins'];
                 $ampm=$_POST['ampm'];
@@ -197,7 +202,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
                 
                 if ($error==FALSE){
                
-                $sql1 = "INSERT INTO `reservations`(`cusname`, `diladd`, `dildate`, `diltime`, `mobilenum`,`packname`,`Floral_tributes`,`Remembrance_booklet`,`Chairs_and_tents`,`Obituary_Notices`,`Crematorium_booking`,`Monumental_plaques`,`Funeral_pyres`,`Web_casting`,`Condolence_messeges`,`total`) VALUES ('$_POST[cusname]','$_POST[diladd]','$dildate','$diltime','$_POST[mobilenum]','$_POST[packname]','$_POST[service1]','$_POST[service2]','$_POST[service3]','$_POST[service4]','$_POST[service5]','$_POST[service6]','$_POST[service7]','$_POST[service8]','$_POST[service9]','$_POST[totalam]')";
+                $sql1 = "INSERT INTO `reservations`(`deadname`, `diladd`, `dildate`, `diltime`, `mobilenum`,`packname`,`Floral_tributes`,`Remembrance_booklet`,`Chairs_and_tents`,`Obituary_Notices`,`Crematorium_booking`,`Monumental_plaques`,`Funeral_pyres`,`Web_casting`,`Condolence_messeges`,`total`) VALUES ('$_POST[deadname]','$_POST[diladd]','$_POST[dildate]','$diltime','$_POST[mobilenum]','$_POST[packname]','$_POST[service1]','$_POST[service2]','$_POST[service3]','$_POST[service4]','$_POST[service5]','$_POST[service6]','$_POST[service7]','$_POST[service8]','$_POST[service9]','$_POST[totalam]')";
 
 
                 if(mysqli_query($conn,$sql1)){
@@ -221,9 +226,9 @@ input[name=dildate]:hover,[type=visnic]:hover{
                 
                 </tr>
                  <tr> 
-                    <td><label for="cusname">Customer Name</label><span class="error"><?php echo $cusnameerr;?></span></td>
+                    <td><label for="deadname">Dead Person Name</label><span class="error"><?php echo $deadnameerr;?></span></td>
                         
-                    <td><input type="text" name="cusname" id="cusname" required></td>
+                    <td><input type="text" name="deadname" id="deadname" required></td>
                 
                 </tr>
                 <tr>
@@ -236,11 +241,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
                 <tr>
                     
                      <td><label for="dildate">Funeral Date</label><span class="error"><?php echo $dildateerr;?></span></td>
-                        
-                       
-
-
-                       <td><input  type=text name=dildate id="dildate" required></td>
+                       <td><input  type=text name=dildate id="datepicker" required></td>
                        
                 </tr>
                 <tr>
@@ -424,7 +425,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
                                 </font></div>
                         </td>
                         </td>
-                        <td><div class="packv" align="center" "><p id="packval">Package Prize</p></div></td>
+                        <td><div class="packv" align="center"><p id="packval">Package Prize</p></div></td>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -822,7 +823,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
     </div>
 </div>
 
-
+</div>
 
     <!-- include footer -->
     <?php include 'temp/footer.php';  ?>

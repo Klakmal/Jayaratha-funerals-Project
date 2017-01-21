@@ -139,11 +139,6 @@
 			background-color: #eee;
 		}
         
-        .themeimage{
-            height: 100px;
-            width: 100%;
-            background-image: url(img/memories.jpg);
-        }
         h1{
             font-family: myfont1;
             color: #a86205;
