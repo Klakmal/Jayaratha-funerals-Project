@@ -20,7 +20,7 @@ session_start(); ?>
         echo '<div id="par1" align="center" >';
         echo '<div id="par" align="center" > <br>';
         #customer name
-        echo $row['deadname'] .'... You, selected: ';
+        echo 'You, selected: ';
         #package name
         echo $row['packname'] . '<br>';
 
