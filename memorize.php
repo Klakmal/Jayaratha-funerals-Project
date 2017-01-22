@@ -197,7 +197,7 @@
 		<datalist id="drop_boxb"></datalist>
 		<input type="text" name="university" id="university" list="drop_boxc" placeholder="University name">
 		<datalist id="drop_boxc"></datalist>
-		<input type="text" name="employee" id="employee" list="drop_boxd" placeholder="Employee">
+		<input type="text" name="employee" id="employee" list="drop_boxd" placeholder="Work Place">
 		<datalist id="drop_boxd"></datalist>
 	</div>
 	<div class="itm2" align="center">

@@ -209,7 +209,7 @@
 			      				}
 			      				$employee .='
 			      				<div class="cube4">
-			      				<label style="color:white;"><b>Employee : </b></label><span style="color:#f1f1f1;">'.$row["employee"].'</span>
+			      				<label style="color:white;"><b>Work Place : </b></label><span style="color:#f1f1f1;">'.$row["employee"].'</span>
 			      				</div>
 			      				';
 			      				if($row["employee"]){

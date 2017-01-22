@@ -191,12 +191,7 @@
                     $visname = $_POST['visname'];
                 }
                 
-              if(empty($_POST['visnic'])){ 
-                    $visnicerr = "";
-                    $error = TRUE;
-                }else{
-                    $visnic = $_POST['visnic'];
-                }
+           
                 
                 if(empty($_POST['relation'])){ 
                     $relationerr = "";
@@ -213,7 +208,7 @@
                 
                 if ($error==FALSE){
                
-                $sql = "INSERT INTO visitors (deadPersonID,visname,visnic,relation,message) VALUES ('".$id."','".$visname."','".$visnic."','".$relation."','".$message."')";
+                $sql = "INSERT INTO visitors (deadPersonID,visname,relation,message) VALUES ('".$id."','".$visname."','".$relation."','".$message."')";
                 if(mysqli_query($conn,$sql)){
                     /*echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
                     header( "Location: condolence.php");*/
@@ -291,12 +286,7 @@
                     
                 </tr>
                
-                <tr>
-                    <td></td>
-                     <td><label for="visnic">Visitor NIC : </label><span class="error"><?php echo $visnicerr;?></span></td>
-                        
-                       <td><input type="visnic" name="visnic" id="visnic" pattern="^\d[0-9V]{9}$" maxlength="10" placeholder="Visitor NIC - XXXXXXXXXV" required></td>
-                </tr>
+               
                 <tr>
                     <td></td>
                      <td><label for="relation">Relationship : </label><span class="error"><?php echo $relationerr;?></span></td>
