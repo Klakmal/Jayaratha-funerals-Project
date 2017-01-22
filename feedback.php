@@ -122,7 +122,7 @@
                         <tr>
                             <td colspan="2">
                                 <input type="submit" value="Submit" name="submit" <?php if ($error==FALSE){}?>> 
-                                <input type="reset" value="Cancle" name="cancle">
+                                <input type="reset" value="Cancel" name="cancel">
                             </td>
                         
                         </tr>

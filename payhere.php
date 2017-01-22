@@ -126,7 +126,7 @@ session_start(); ?>
            
             
              <td colspan="2" >
-                  <input type="button" value="Cancle" name="cancle" onclick="document.location.href='/project/index.php'" >
+                  <input type="button" value="Cancel" name="cancel" onclick="document.location.href='/project/index.php'" >
             </td>
         </tr>
         </table>
