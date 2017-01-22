@@ -20,7 +20,7 @@ label{
 }
 
 
-input[name=diladd],[name=mobilenum],[name=cusname],[type=visnic]{
+input[name=diladd],[name=mobilenum],[name=deadname],[type=visnic]{
 	width: 250px;
 	height: 25px;
 	padding: 5px;
@@ -29,7 +29,7 @@ input[name=diladd],[name=mobilenum],[name=cusname],[type=visnic]{
 	border-radius: 7px;
 
 }
-input[name=diladd]:hover,[name=mobilenum],[name=cusname]:hover,[type=visnic]:hover{
+input[name=diladd]:hover,[name=mobilenum],[name=deadname]:hover,[type=visnic]:hover{
 	width: 250px;
 	height: 25px;
 	padding: 5px;
