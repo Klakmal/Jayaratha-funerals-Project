@@ -232,7 +232,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
                 
                 </tr>
                 <tr>
-                    <td><label for="diladd">Dilivery Address</label><span class="error"><?php echo $diladderr;?></span></td>
+                    <td><label for="diladd">Delivery Address</label><span class="error"><?php echo $diladderr;?></span></td>
                         
                     <td> <input type="text" name="diladd" id="diladd" required></td>
                     
@@ -810,7 +810,7 @@ input[name=dildate]:hover,[type=visnic]:hover{
                      <td colspan="2">
                         <input type="hidden" id="totalam" name="totalam" value="0">
                         <input type="submit" value="Submit" name="submit"> 
-                        <input type="reset" value="Cancle" name="cancle">
+                        <input type="reset" value="Cancel" name="cancel">
                     </td>
                 </tr>
 
