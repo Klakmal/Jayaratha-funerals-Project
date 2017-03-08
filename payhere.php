@@ -60,29 +60,11 @@ session_start(); ?>
         paypal details
           https://www.sandbox.paypal.com/cgi-bin/webscr  //sandbox api url
           maiperera93@gmail.com
-          ammamagerajina<3
 
           jayaratnefuneraldirectors@gmail.com
-          ucsc@123
 
           maiperera93-facilitator@gmail.com(buisiness)
-          ucsc@123
 
-          maiperera93-buyer@gmail.com(personal)
-          ucsc@123
-          Bank Account
-          Account Number:
-          60387364
-          Routing Number:
-          325272063
-          Credit Card
-          Credit Card Number:
-          4032036726968108
-          Credit Card Type:
-          VISA
-          Expiration Date:
-          12/2021
-          PayPal
          */
         ?>
 
